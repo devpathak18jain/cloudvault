@@ -1,0 +1,12 @@
+services:
+  cloudvault:
+    build: .
+    image: cloudvault:latest
+    ports:
+      - "80:8000"        # browser on port 80 -> container 8000
+    env_file: .env
+    volumes:
+      - cloudvault-data:/data
+    restart: unless-stopped
+volumes:
+  cloudvault-data:
